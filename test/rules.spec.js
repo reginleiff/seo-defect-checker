@@ -1,5 +1,5 @@
 const cheerio = require('cheerio');
-const { NumberWithoutAttributesRule, ParentContainsTagRule, MoreThanXOfTagRule } = require('../lib/rules');
+const { NumberWithoutAttributesRule, ParentContainsTagRule, NotMoreThanXOfTagRule } = require('../lib/rules');
 
 describe('Rules', () => {
   let input = '';
@@ -98,46 +98,46 @@ describe('Rules', () => {
 
   describe('More than x of Tag', () => {
     test('When provided > x tags and x as param, should detect', () => {
-      const rule = new MoreThanXOfTagRule('h1', 3);
+      const rule = new NotMoreThanXOfTagRule('h1', 3);
       expect(rule.check(input)).toContain('There are more than 3 <h1> tag(s)');
     });
 
     test('When provided < x tags and x as param, should not print', () => {
-      const rule = new MoreThanXOfTagRule('h1', 4);
+      const rule = new NotMoreThanXOfTagRule('h1', 4);
       expect(rule.check(input)).toBe('');
     });
 
     test('When provided > x tags and x, attributes as param, should detect', () => {
-      const rule = new MoreThanXOfTagRule('h1', 1, ['class']);
+      const rule = new NotMoreThanXOfTagRule('h1', 1, ['class']);
       expect(rule.check(input)).toContain('There are more than 1 <h1> tag(s) with attribute(s) [class]');
     });
 
     test('When provided < x tags and x, attributes as param, should not print', () => {
-      const rule = new MoreThanXOfTagRule('h1', 2, ['class']);
+      const rule = new NotMoreThanXOfTagRule('h1', 2, ['class']);
       expect(rule.check(input)).toBe('');
     });
 
     test('When provided > x tags and x, attributes and values as param, should detect', () => {
-      const rule = new MoreThanXOfTagRule('h1', 0, ['class'], ['title']);
+      const rule = new NotMoreThanXOfTagRule('h1', 0, ['class'], ['title']);
       expect(rule.check(input)).toContain(
         'There are more than 0 <h1> tag(s) with attribute(s) [class] and their respective value(s) [title]',
       );
     });
 
     test('When provided < x tags and x, attribute as param, should not print', () => {
-      const rule = new MoreThanXOfTagRule('h1', 1, ['class'], ['title']);
+      const rule = new NotMoreThanXOfTagRule('h1', 1, ['class'], ['title']);
       expect(rule.check(input)).toBe('');
     });
 
     test('When provided > x tags and x, parent, attributes and values as param, should detect', () => {
-      const rule = new MoreThanXOfTagRule('h1', 0, ['prop'], ['temp'], 'body');
+      const rule = new NotMoreThanXOfTagRule('h1', 0, ['prop'], ['temp'], 'body');
       expect(rule.check(input)).toContain(
         "There are more than 0 <h1> tag(s) with parent 'body' with attribute(s) [prop] and their respective value(s) [temp]",
       );
     });
 
     test('When provided < x tags and x, parent, attribute as param, should not print', () => {
-      const rule = new MoreThanXOfTagRule('h1', 3, ['prop'], ['temp'], 'body');
+      const rule = new NotMoreThanXOfTagRule('h1', 3, ['prop'], ['temp'], 'body');
       expect(rule.check(input)).toBe('');
     });
   });
