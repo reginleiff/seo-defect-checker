@@ -1,0 +1,6 @@
+No <head> tag contains <meta> tag with attribute(s) [name] and their respective value(s) [descriptions]
+No <head> tag contains <meta> tag with attribute(s) [name] and their respective value(s) [keywords]
+There are 2 <img> tag(s) without attribute(s) [alt] 
+There are 3 <a> tag(s) without attribute(s) [rel] 
+There are more than 15 <strong> tag(s)  
+There are more than 1 <h1> tag(s)  

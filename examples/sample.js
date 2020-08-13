@@ -32,7 +32,8 @@ const test = `<!DOCTYPE html>
 	<ul></ul>
 </body>`;
 
-const check = require('./lib/checker');
+const check = require('../lib/checker');
+
 const {
   ReportNumberImgTagsWithoutAltAttribute,
   ReportNumberATagsWithoutRelAtrribute,
@@ -41,7 +42,7 @@ const {
   ReportIfMoreThan1H1,
   HeaderShouldContainMetaNameDescriptions,
   HeaderShouldContainMetaNameKeywords,
-} = require('./lib/sample-rules');
+} = require('../lib/sample-rules');
 
 (async () => {
   await check(test, [

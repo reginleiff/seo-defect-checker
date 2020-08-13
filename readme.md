@@ -7,8 +7,8 @@ Detect Search Engine Optimisation (SEO) defects within HTML code.
 - `-i` - **Input file path** for html file
 - `-r` - **Rule set export** (see `lib/sample-rules.js`)
 - `-o` - **Output file path** (optional - `console` will be used otherwise)
-```
-$ npm run check -- -i sample.html -r ./lib/sample-rules.js
+```shell
+$ npm run check -- -i ./examples/sample.html -r ./lib/sample-rules.js -o ./examples/sample-out.txt
 ```
 
 ### Using the `check` API
