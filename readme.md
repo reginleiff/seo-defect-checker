@@ -13,17 +13,17 @@ $ npm i @reginleiff/seo-defect-checker
 - `-r` - **Rule set export** (see `lib/sample-rules.js`)
 - `-o` - **Output file path** (optional - `console` will be used otherwise)
 ```shell
-$ npm run check -- -i ./examples/sample.html -r ./lib/sample-rules.js -o ./examples/sample-out.txt
+$ seocheck -i examples/sample.html -r ./lib/sample-rules.js -o ./examples/sample-out.txt
 ```
 
 ### Using the `check` API
 ```javascript
-const { check, PredefinedRules } = require('@reginleiff/seo-defect-checker');
+import { check, PredefinedRules } from '@reginleiff/seo-defect-checker';
 
 await check('./test.html', [
-  PredefinedRules.NumberImgTagsWithoutRelAttribute,
-  PredefinedRules.HeaderContainsTitle,
-  PredefinedRules.NotMoreThan15Strong
+  PredefinedRules.ReportNumberImgTagsWithoutRelAttribute,
+  PredefinedRules.HeaderShouldContainsTitle,
+  PredefinedRules.ReportIfNotMoreThan15Strong
 ], console);
 ```
 
