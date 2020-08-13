@@ -10,7 +10,7 @@ $ npm i @reginleiff/seo-defect-checker
 
 ### Using it as a CLI Tool
 - `-i` - **Input file path** for html file
-- `-r` - **Rule set export** (see `lib/sample-rules.js`)
+- `-r` - **Rule set export** (see `lib/sample-rules.js` as an example)
 - `-o` - **Output file path** (optional - `console` will be used otherwise)
 ```shell
 $ seocheck -i examples/sample.html -r ./lib/sample-rules.js -o ./examples/sample-out.txt

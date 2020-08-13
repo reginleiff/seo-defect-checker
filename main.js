@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
+const path = require('path');
 const yargs = require('yargs');
 const check = require('./lib/checker');
 
@@ -11,7 +12,8 @@ async function run() {
       .option('r', { alias: 'rules', describe: 'Rules File Path', type: 'string', demandOption: true })
       .option('o', { alias: 'output', describe: 'Output File Path', type: 'string', demandOption: false }).argv;
     const { input, rules, output } = options;
-    const ruleset = require(rules);
+    const rulesPath = path.resolve(__dirname, rules);
+    const ruleset = require(rulesPath);
     await check(input, Object.values(ruleset), output ? output : console, true);
   } catch (error) {
     throw error;
