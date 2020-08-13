@@ -1,6 +1,11 @@
 # SEO Defect Checker
 Detect Search Engine Optimisation (SEO) defects within HTML code.
 
+## Installation
+```shell
+$ npm i @reginleiff/seo-defect-checker
+```
+
 ## Usage
 
 ### Using it as a CLI Tool
@@ -13,13 +18,12 @@ $ npm run check -- -i ./examples/sample.html -r ./lib/sample-rules.js -o ./examp
 
 ### Using the `check` API
 ```javascript
-const check = require('./lib/checker.js');
-const Rules = require('./lib/sample-rules.js');
+const { check, PredefinedRules } = require('@reginleiff/seo-defect-checker');
 
 await check('./test.html', [
-  Rules.NumberImgTagsWithoutRelAttribute,
-  Rules.HeaderContainsTitle,
-  Rules.NotMoreThan15Strong
+  PredefinedRules.NumberImgTagsWithoutRelAttribute,
+  PredefinedRules.HeaderContainsTitle,
+  PredefinedRules.NotMoreThan15Strong
 ], console);
 ```
 
@@ -27,7 +31,7 @@ await check('./test.html', [
 
 ```javascript
 // rules.js
-import { ParentContainsTagRule } from './lib/rules';
+import { ParentContainsTagRule } from '@reginleiff/seo-defect-checker';
 
 const ShouldContainMetaNameRobots = new ParentContainsTagRule('meta', ['name'], ['robots']);
 
