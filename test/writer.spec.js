@@ -3,6 +3,13 @@ const { writeToOutput } = require('../lib/writer');
 const { Writable } = require('stream');
 
 describe('Writer', () => {
+  const path = __dirname + '/test.txt';
+  afterAll(async () => {
+    await new Promise((resolve, reject) => {
+      unlink(path, (err) => (err ? reject(err) : resolve(true)));
+    });
+  });
+
   const testLog = 'This should be written to log';
   test('When provided console, should print to console log', async () => {
     const spy = jest.spyOn(console, 'log').mockImplementation();
@@ -13,7 +20,6 @@ describe('Writer', () => {
   });
 
   test('When provided filename, should successfully write to file', async () => {
-    const path = __dirname + '/test.txt';
     await writeToOutput(testLog, path);
     const writtenData = await new Promise((resolve, reject) => {
       readFile(path, 'utf-8', (err, data) => {
