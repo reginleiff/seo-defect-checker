@@ -2,12 +2,10 @@
   "name": "seo-defect-checker",
   "version": "1.0.0",
   "description": "Package to detect SEO defects",
-  "author": "",
+  "author": "Yeo Junkai",
   "license": "ISC",
   "devDependencies": {
-    "@types/cheerio": "^0.22.21",
-    "jest": "^26.3.0",
-    "typescript": "^3.9.7"
+    "jest": "^26.3.0"
   },
   "dependencies": {
     "cheerio": "^1.0.0-rc.3"

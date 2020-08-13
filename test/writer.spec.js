@@ -14,7 +14,6 @@ describe('Writer', () => {
 
   test('When provided filename, should successfully write to file', async () => {
     const path = __dirname + '/test.txt';
-    console.log(path);
     await writeToOutput(testLog, path);
     const writtenData = await new Promise((resolve, reject) => {
       readFile(path, 'utf-8', (err, data) => {
