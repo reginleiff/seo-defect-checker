@@ -1,5 +1,5 @@
 {
-  "name": "seo-defect-checker",
+  "name": "@reginleiff/seo-defect-checker",
   "version": "1.0.0",
   "description": "Package to detect SEO defects",
   "author": "Yeo Junkai",
