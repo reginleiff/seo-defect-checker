@@ -3,7 +3,15 @@ Detect Search Engine Optimisation (SEO) defects within HTML code.
 
 ## Usage
 
-### Using the checker
+### Using it as a CLI Tool
+- `-i` - **Input file path** for html file
+- `-r` - **Rule set export** (see `lib/sample-rules.js`)
+- `-o` - **Output file path** (optional - `console` will be used otherwise)
+```
+$ npm run check -- -i sample.html -r ./lib/sample-rules.js
+```
+
+### Using the `check` API
 ```javascript
 const check = require('./lib/checker.js');
 const Rules = require('./lib/sample-rules.js');
@@ -24,7 +32,7 @@ import { ParentContainsTagRule } from './lib/rules';
 const ShouldContainMetaNameRobots = new ParentContainsTagRule('meta', ['name'], ['robots']);
 
 export default {
-  ContainsMetaNameRobots
+  ShouldContainMetaNameRobots
 }
 ```
 
